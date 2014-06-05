@@ -114,9 +114,12 @@ def __get_connection_SNS():
     except Exception as err:
         logger.error('Failed connecting to SNS: {0}'.format(err))
         logger.error(
-            'Please report an issue at: '
-            'https://github.com/sebdah/dynamic-dynamodb/issues')
-        raise
+            'SNS connection could not be established. '
+            'This is only a problem if you needed SNS capabilities.')
+        #logger.error(
+        #    'Please report an issue at: '
+        #    'https://github.com/sebdah/dynamic-dynamodb/issues')
+        #raise
 
     logger.debug('Connected to SNS in {0}'.format(region))
     return connection
